@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$rootFolder = '/home/pucil/skola/2026-09-29 K přejmenování';
+$rootFolder = getenv('RENAME_ROOT') ?: '/data';
 
 $books = [
     '1946 Jihočeský kalendář' => ['start' => 1, 'oddNumbers' => true],

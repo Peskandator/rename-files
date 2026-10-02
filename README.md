@@ -2,7 +2,7 @@
 
 Skript pro hromadné přejmenování naskenovaných stránek knížek ze scanneru (Scan_*.jpg) na srozumitelný formát.
 
-## Spuštění
+## Spuštění (Bash)
 
 ```bash
 # Zobrazit seznam knih
@@ -13,6 +13,22 @@ Skript pro hromadné přejmenování naskenovaných stránek knížek ze scanner
 
 # Přejmenovat soubory
 ./rename.sh 1
+```
+
+## Spuštění (PHP přes Docker)
+
+```bash
+# Sestavit image
+docker build -t rename-files .
+
+# Zobrazit seznam knih (složka s knížkami se připojí jako volume)
+docker run --rm -v "/cesta/ke/složce:/data" rename-files
+
+# Dry run
+docker run --rm -v "/cesta/ke/složce:/data" rename-files 1 --dry-run
+
+# Přejmenovat soubory
+docker run --rm -v "/cesta/ke/složce:/data" rename-files 1
 ```
 
 ## Jak to funguje
